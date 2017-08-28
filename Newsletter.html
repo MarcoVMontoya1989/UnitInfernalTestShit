@@ -1,0 +1,29 @@
+{% if display_newsletter_subscription %}
+{% block newsletterSubscription %}
+<div class="footer-subscribe-row row">
+    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+        <div class="subscribe-title">{{ 'newsletter.title'|trans }}</div>
+    </div>
+    <form class="col-lg-9 col-md-6 col-sm-12 col-xs-12" action="{{ path('frontend.newsletter.subscribe') }}" method="POST" data-newsletter>
+        <div class="row">
+            <div class="col-lg-6 col-xs-12">
+                <input type="email" name="promotional_newsletter_form[email]" placeholder="{{ 'newsletter.subscribe_with_your_email'|trans }}" class="row form-control form-control-sm" />
+                <div class="checkbox">
+                    <label>
+                        <input id="terms" type="checkbox">{{ 'NEWSLETTER_TERMS_AND_CONDITIONS_1'|trans }}
+                        <a href="{{ terms_and_conditions }}" target="_blank">{{ 'NEWSLETTER_TERMS_AND_CONDITIONS_2'|trans }}</a>
+                    </label>
+                </div>
+                <input type="hidden" name="promotional_newsletter_form[gender]" />
+            </div>
+            <div class="col-lg-3 col-md-6 col-xs-12">
+                <button type="submit" class="btn btn-default btn-sm col-xs-12" data-gender="male">{{ 'newsletter.male_deals'|trans }}</button>
+            </div>
+            <div class="col-lg-3 col-md-6 col-xs-12">
+                <button type="submit" class="btn btn-default btn-sm col-xs-12" data-gender="female">{{ 'newsletter.female_deals'|trans }}</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+{% endif %}
